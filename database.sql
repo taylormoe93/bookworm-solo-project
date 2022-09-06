@@ -38,3 +38,8 @@ VALUES
 ('Horror'),
 ('Non-fiction'),
 ('Poetry');
+
+-- Default book
+INSERT INTO "books" ("title", "author", "cover", "notes", "book_read")
+VALUES
+('Pride and Prejudice', 'Jane Austen', 'pride-and-prejudice-cover.jpg', 'The classic of Jane Austen', 'true')
