@@ -31,3 +31,5 @@ return(
 );
 
 }// end BookItem
+
+export default BookItem;
