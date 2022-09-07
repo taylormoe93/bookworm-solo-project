@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'; // allows us to use redux within our react app
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers} from 'redux';
+import { applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 
 //import saga middleware
@@ -91,7 +92,7 @@ const storeInstance = createStore(
     currentBook
   }),
   //Add sagaMiddleware to our store
-  applyMiddleWare(sagaMiddleware, logger),
+  applyMiddleware(sagaMiddleware, logger),
 ); // end storeInstance
 
 sagaMiddleware.run(rootSaga);
