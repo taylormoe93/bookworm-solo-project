@@ -12,7 +12,7 @@ function Details() {
     const params = useParams();
 
     const book = useSelector(store => store.currentBook);
-    const genres = useSelector(store => store.genres);
+    const genre = useSelector(store => store.genres);
 
     //GET DETAILS
     useEffect(() => {
