@@ -14,7 +14,7 @@ CREATE TABLE "genres" (
 	"name" varchar(80) NOT NULL
 ); 
 
-CREATE TABLE "books" (
+CREATE TABLE "book" (
 	"id" SERIAL PRIMARY KEY,
 	"title" varchar(120) NOT NULL,
 	"author" varchar(120) NOT NULL,

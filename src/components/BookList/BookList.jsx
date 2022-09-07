@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 //BOOKLIST FUNCTION
 function BookList() {
     const dispatch = useDispatch();
-    const books = useSelector(store => store.books);
+    const book = useSelector(store => store.book);
 
     useEffect(() => {
         dispatch({ type: 'FETCH_BOOKS' });
@@ -14,8 +14,8 @@ function BookList() {
     return (
         <main>
             <h1>My Book List</h1>
-            <section className="books">
-                {books.map(books => {
+            <section className="book">
+                {book.map(book => {
                     return (
                         //Import the BookItem component:
                         <BookItem
