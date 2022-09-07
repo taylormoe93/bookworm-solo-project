@@ -22,6 +22,8 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
 
+// I have the routes below, but commented out as I'm not sure if they are 100% correct thus far. Need to review.
+
 function App() {
   const dispatch = useDispatch();
 
@@ -59,6 +61,14 @@ function App() {
           >
             <UserPage />
           </ProtectedRoute>
+
+          {/* !!!! DETAILS and BOOK ITEM !!!! REVIEW THIS
+          <ProtectedRoute
+            exact
+            path="/details/:id">
+              <BookItem />
+              <Details />
+            </ProtectedRoute> */}
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
