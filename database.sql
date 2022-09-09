@@ -9,7 +9,7 @@ CREATE TABLE "user" (
     "password" VARCHAR (1000) NOT NULL
 );
 
-CREATE TABLE "genres" (
+CREATE TABLE "genre" (
 	"id" SERIAL PRIMARY KEY,
 	"name" varchar(80) NOT NULL
 ); 
@@ -27,7 +27,7 @@ CREATE TABLE "book" (
 
 ---- [DATA] ----
 -- Genres values
-INSERT INTO "genres" ("name")
+INSERT INTO "genre" ("name")
 VALUES
 ('Classics'),
 ('Literary'),
