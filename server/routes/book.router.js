@@ -6,9 +6,11 @@ const router = express.Router();
  * GET route 
  */
 router.get('/', (req, res) => {
+    console.log('GET books')
     const query = `SELECT * FROM book ORDER BY "title" ASC`;
     pool.query(query)
         .then( result => {
+            console.log(result.rows);
             res.send( result.rows );
         })
         .catch( error => {
