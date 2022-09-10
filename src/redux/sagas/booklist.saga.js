@@ -3,7 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga will be fired on "FETCH_BOOKS" 
 function* fetchBook() {
-
+// Ask J about this
     try {
         const config = {
             headers: { 'Content-Type': 'application/json' },

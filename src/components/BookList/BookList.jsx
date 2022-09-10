@@ -14,7 +14,7 @@ function BookList() {
 
     return (
         <main>
-            <h1>My Book List</h1>
+            <h1>My Library</h1>
             <section className="book">
                 {books.map(book => {
                     return (

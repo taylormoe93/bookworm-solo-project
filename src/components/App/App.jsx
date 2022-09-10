@@ -23,6 +23,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import BookItem from '../BookItem/BookItem';
 import Details from '../Details/Details';
 import BookList from '../BookList/BookList';
+import AddBook from '../AddBook/AddBook';
 
 import './App.css';
 
@@ -63,21 +64,21 @@ function App() {
             exact
             path="/user"
           >
-            <UserPage />
+            <BookList />
+            {/* <UserPage /> */}
           </ProtectedRoute>
-
-          {/* !!!! REVIEW THIS */}
-          <ProtectedRoute
-            exact
-            path="/booklist">
-              <BookList />
-            </ProtectedRoute> 
 
             {/* ADD Detail view
             <Route path="/animals/:id" exact>
             <AnimalDetail />
             </Route>
             */}
+          <ProtectedRoute
+          exact
+          path="/add"
+          >
+          <AddBook />
+          </ProtectedRoute>
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage

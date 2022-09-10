@@ -24,24 +24,23 @@ router.get('/', (req, res) => {
  */
 // Req.body vs req.user?
 // "book" or book?
+// add "book read" and $5
 router.post('/', (req, res) => {
     console.log(req.body);
     const insertBookQuery = `
-    INSERT INTO book ("title", "author", "cover", "notes", "book_read")
-    VALUES ($1, $2, $3, $4, $5)
-    RETURN "id";`
+   INSERT INTO "book" ("title", "author", "cover", "book_read")
+VALUES ($1, $2, $3, $4) RETURNING "id", "title", "author", "cover", "book_read", "user_id", "genres_id";`
 
-    //QUERY MAKES A BOOK
-    pool.query(insertBookQuery, [req.body.title, req.body.author, req.body.cover, req.body.notes, req.body.book_read])
+    const queryValues = [req.body.title, req.body.author, req.body.cover, req.body.book_read]
+
+    pool.query(insertBookQuery, queryValues)
         .then(result => {
+            res.sendStatus(201);
             console.log('New Book ID:', result.rows[0].id); // ID IS HERE
-
-        const createBookId = result.rows[0].id
-
+        const createBookId = result.rows[0].id // !!! <----- is this right?
         //Do we need genre stuff?
-
         }) .catch(error => {
-            console.error(error);
+            console.error('Error in book.router POST:',error);
             res.sendStatus(500)
         })
 }) // end POST
