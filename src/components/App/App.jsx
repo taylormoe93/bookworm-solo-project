@@ -20,6 +20,11 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
+import BookItem from '../BookItem/BookItem';
+import Details from '../Details/Details';
+import BookList from '../BookList/BookList';
+import AddBook from '../AddBook/AddBook';
+
 import './App.css';
 
 // I have the routes below, but commented out as I'm not sure if they are 100% correct thus far. Need to review.
@@ -59,16 +64,21 @@ function App() {
             exact
             path="/user"
           >
-            <UserPage />
+            <BookList />
+            {/* <UserPage /> */}
           </ProtectedRoute>
 
-          {/* !!!! DETAILS and BOOK ITEM !!!! REVIEW THIS
+            {/* ADD Detail view
+            <Route path="/animals/:id" exact>
+            <AnimalDetail />
+            </Route>
+            */}
           <ProtectedRoute
-            exact
-            path="/details/:id">
-              <BookItem />
-              <Details />
-            </ProtectedRoute> */}
+          exact
+          path="/add"
+          >
+          <AddBook />
+          </ProtectedRoute>
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage

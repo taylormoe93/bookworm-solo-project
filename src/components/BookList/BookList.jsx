@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import bookitem
+import BookItem from '../BookItem/BookItem';
 
 //BOOKLIST FUNCTION
 function BookList() {
     const dispatch = useDispatch();
-    const book = useSelector(store => store.book);
+    const books = useSelector(store => store.books);
+    console.log('books from reducer:', books)
 
     useEffect(() => {
         dispatch({ type: 'FETCH_BOOKS' });
@@ -13,9 +14,9 @@ function BookList() {
 
     return (
         <main>
-            <h1>My Book List</h1>
+            <h1>My Library</h1>
             <section className="book">
-                {book.map(book => {
+                {books.map(book => {
                     return (
                         //Import the BookItem component:
                         <BookItem

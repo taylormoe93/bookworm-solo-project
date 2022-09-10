@@ -19,7 +19,6 @@ CREATE TABLE "book" (
 	"title" varchar(120) NOT NULL,
 	"author" varchar(120) NOT NULL,
 	"cover" varchar(350) NOT NULL,
-	"notes" varchar(350) NOT NULL,
 	"book_read" BOOLEAN NOT NULL,
 	"user_id" INT REFERENCES "user",
 	"genres_id" INT REFERENCES "genres"

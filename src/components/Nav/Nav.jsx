@@ -4,7 +4,6 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
 
-import { Navlink } from 'react-router-dom'; // Navlink import
 
 function Nav() {
   const user = useSelector((store) => store.user);
