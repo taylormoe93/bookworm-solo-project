@@ -11,7 +11,7 @@ function* fetchBook() {
         };
 
     const response = yield axios.get('/api/book', config);
-
+        console.log('WE WANT THIS ON THE DOM',response.data)
     yield put({ type: 'SET_BOOK', payload: response.data })
     } catch (error) {
         console.error('GET IN BOOKLIST SAGA FAILED:', error);
@@ -28,7 +28,7 @@ function *deleteBook(action) {
 
         const response = yield axios.delete(`/api/booklist/${action.payload}`, config);
 
-        yield put({type: 'FETCH_BOOK' });
+        // yield put({type: 'FETCH_BOOK' });
     } catch (error) {
         console.error('deleteBook failed:', error);
     }

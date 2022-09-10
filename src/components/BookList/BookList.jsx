@@ -5,7 +5,9 @@ import BookItem from '../BookItem/BookItem';
 //BOOKLIST FUNCTION
 function BookList() {
     const dispatch = useDispatch();
-    const books = useSelector(store => store.books);
+    const bookListReducer = useSelector((store) => store.bookListReducer);
+    console.log('THE BOOK LIST REDUCER:',bookListReducer);
+    const books = useSelector((store) => store.books);
     console.log('books from reducer:', books)
 
     useEffect(() => {
@@ -16,7 +18,7 @@ function BookList() {
         <main>
             <h1>My Library</h1>
             <section className="book">
-                {books.map(book => {
+                {bookListReducer.map(book => {
                     return (
                         //Import the BookItem component:
                         <BookItem
