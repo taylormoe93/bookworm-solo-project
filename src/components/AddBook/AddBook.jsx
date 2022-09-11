@@ -1,7 +1,9 @@
 import {useState} from 'react';
 import {useDispatch} from 'react-redux';
+import {useHistory} from 'react-router-dom';
 
 function AddBook() {
+    const history = useHistory();
     const dispatch = useDispatch();
     const [newBook, setNewBook] = useState({
         title: '', 
@@ -35,6 +37,8 @@ function AddBook() {
             type: 'ADD_BOOK',
             payload: newBook
         })
+
+        history.push('/user');
     }
 
     console.log(newBook)

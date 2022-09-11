@@ -41,7 +41,7 @@ return(
     <>  
      {/* Click the div to trigger details handleClick */}
             <br></br>
-        <div key={book.id} onClick={handleClick}>
+        <div className="bookDiv" key={book.id} onClick={handleClick}>
             <h3>{book.title}</h3>
             <p>{book.author}</p>
             <img className="bookcover" src={book.cover} />

@@ -1,6 +1,13 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
+
+function* booklistSaga() {
+    yield takeLatest('FETCH_BOOKS', fetchBook);
+    yield takeLatest('DELETE_BOOK', deleteBook);
+}
+
+
 // worker Saga will be fired on "FETCH_BOOKS" 
 function* fetchBook() {
 // Ask J about this
@@ -35,9 +42,5 @@ function* deleteBook(action) {
     }
 } // end deleteBook
 
-function* booklistSaga() {
-    yield takeLatest('FETCH_BOOKS', fetchBook);
-    yield takeLatest('DELETE_BOOK', deleteBook);
-}
 
 export default booklistSaga;
