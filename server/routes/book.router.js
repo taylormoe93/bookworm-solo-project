@@ -45,4 +45,22 @@ VALUES ($1, $2, $3, $4) RETURNING "id", "title", "author", "cover", "book_read",
         })
 }) // end POST
 
+/*
+*Delete a book if it's someting the logged in user added
+*/ 
+router.delete('/:id', (req, res) => {
+    const queryText =  `DELETE FROM "book"
+                        WHERE "id" = $1;`
+    const queryValue = [req.params.id]
+    pool.query(queryText, queryValue)
+        .then( result => {
+            res.sendStatus(204)
+        }).catch( error => {
+            console.error('ERROR IN DELETE ROUTER:', error)
+            res.sendStatus(500)
+        })
+});
+
+
+
 module.exports = router;

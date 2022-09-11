@@ -19,14 +19,15 @@ function* fetchBook() {
 } // end fetchBooks
 
 // Insert delete from example item.saga.js in auth-shelf
-function *deleteBook(action) {
+function* deleteBook(action) {
+    console.log(action.payload);
     try {
-        const config = {
-            headers: {'Content-Type': 'application/json'},
-            withCredentials: true,
-        };
 
-        const response = yield axios.delete(`/api/booklist/${action.payload}`, config);
+      yield axios.delete(`/api/book/${action.payload}`);
+      yield put({
+        type: 'FETCH_BOOKS',
+        payload: action.payload
+      })
 
         // yield put({type: 'FETCH_BOOK' });
     } catch (error) {

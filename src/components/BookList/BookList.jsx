@@ -20,6 +20,7 @@ function BookList() {
             <section className="book">
                 {bookListReducer.map(book => {
                     return (
+                        
                         //Import the BookItem component:
                         <BookItem
                         key={book.id}
