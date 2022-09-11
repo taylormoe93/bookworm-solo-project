@@ -2,6 +2,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import{ useParams } from 'react-router-dom';
 import {useSelector} from 'react-redux';
+import "./BookItem.css"
 
 function BookItem({book}) {
     const history = useHistory();
@@ -43,7 +44,7 @@ return(
         <div key={book.id} onClick={handleClick}>
             <h3>{book.title}</h3>
             <p>{book.author}</p>
-            <img src={book.cover} />
+            <img className="bookcover" src={book.cover} />
             <br></br>
             <button onClick={() => deleteBook(book.id)}>Delete</button>
         </div>
