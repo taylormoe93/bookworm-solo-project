@@ -29,7 +29,9 @@ function EditBook() {
         dispatch({
             type: 'UPDATE',
             payload: book
-        })
+        });
+
+        history.push('/user');
     } // end update 
 
     const dispatch = useDispatch()
