@@ -19,6 +19,7 @@ function* rootSaga() {
   yield takeEvery('FETCH_BOOKS', fetchAllBooks);
   yield takeEvery('FETCH_GENRES', fetchAllGenres);
   yield takeEvery('CURRENT_BOOK', fetchCurrentBook);
+  // yield takeEvery ('GET_EDITED_DETAILS', fetchEditedDetails);
 }
 
 function* fetchAllBooks() {
@@ -49,6 +50,17 @@ function* fetchCurrentBook(action) {
     console.error('Error in fetchCurrentBook in index.js');
   }
 } // end fetchCurrentBook
+
+// function* fetchEditedDetails(action) {
+//   console.log('In fetchEditedDetails:', action.payload)
+//   try {
+//     const details = yield axios.get(`/api/book/${action.payload}`);
+//     console.log(details.data)
+//     yield put ({type: 'SET_EDITED_DETAILS', payload: details.data})
+//   } catch {
+//     console.error('fetchEditedDetails error');
+//   }
+// }
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
@@ -84,12 +96,22 @@ const genre = (state = [], action) => {
   }
 } // end genres
 
+const editedDetails = (state = [], action) => {
+  switch (action.type) {
+    case 'SET_EDITED_DETAILS' :
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
 //Create one store that all components can use
 const storeInstance = createStore(
   combineReducers({
     book,
     genre,
-    currentBook
+    currentBook,
+    editedDetails
   }),
   //Add sagaMiddleware to our store
   applyMiddleware(sagaMiddleware, logger),

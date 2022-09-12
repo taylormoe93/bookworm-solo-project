@@ -24,6 +24,7 @@ import BookItem from '../BookItem/BookItem';
 import Details from '../Details/Details';
 import BookList from '../BookList/BookList';
 import AddBook from '../AddBook/AddBook';
+import EditBook from '../EditBook/EditBook';
 
 import './App.css';
 
@@ -65,6 +66,14 @@ function App() {
             path="/user"
           >
             <BookList />
+            {/* <UserPage /> */}
+          </ProtectedRoute>
+          
+
+            <ProtectedRoute
+            path="/edit/:id"
+          >
+            <EditBook />
             {/* <UserPage /> */}
           </ProtectedRoute>
 

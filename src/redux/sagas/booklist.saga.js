@@ -25,6 +25,8 @@ function* fetchBook() {
     }
 } // end fetchBooks
 
+
+
 // Insert delete from example item.saga.js in auth-shelf
 function* deleteBook(action) {
     console.log(action.payload);

@@ -8,21 +8,24 @@ function EditBook() {
         reload(id)
     }, [])
     
-    let { id } = useParams()
+    let id = useParams()
+    console.log('EDIT BOOK', id.id);
+
 
       // user id?
-    const [book, setBook] = useState({id: '', title: '', author: '', cover: '', book_read:''})
+    const [book, setBook] = useState({id: id.id, title: '', author: '', cover: '', book_read:''})
     // const [genre_id, setGenre_id] = useState('')
 
     const reload = (id) => {
         console.log('In EditBook reload. ID:', id);
-        dispatchEvent({
+        dispatch({
             type: 'GET_EDITED_DETAILS',
             payload: id
         })
     }
 
     const update = () => {
+        console.log(book)
         dispatch({
             type: 'UPDATE',
             payload: book
@@ -43,7 +46,6 @@ function EditBook() {
                 <div>
                    
                 </div>
-                <p>or</p>
                 <h3>Edit Book</h3>
                 <input 
                 required
@@ -78,3 +80,4 @@ function EditBook() {
     )
 }
 
+export default EditBook;

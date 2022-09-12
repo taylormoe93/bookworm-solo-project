@@ -45,6 +45,25 @@ VALUES ($1, $2, $3, $4) RETURNING "id", "title", "author", "cover", "book_read",
         })
 }) // end POST
 
+router.put('/:id', (req,res) => {
+    console.log('In PUT for update in book.router.js')
+    const id = req.body.id
+    const title = req.body.title
+    const author = req.body.author
+    const cover = req.body.cover
+    const queryText = `
+        UPDATE "book"
+        SET "title" = $2, "author" = $3, "cover" = $4
+        WHERE "id" = $1;`
+    pool.query(queryText, [id, title, author, cover])
+        .then(results => {
+            res.sendStatus(200)
+        }).catch(error => {
+            console.error(error)
+            res.sendStatus(500);
+        })
+})
+
 /*
 *Delete a book if it's someting the logged in user added
 */ 
