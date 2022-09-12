@@ -5,6 +5,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* booklistSaga() {
     yield takeLatest('FETCH_BOOKS', fetchBook);
     yield takeLatest('DELETE_BOOK', deleteBook);
+    yield takeLatest('GET_DETAIL_VIEW', getDetailView);
 }
 
 
@@ -25,6 +26,18 @@ function* fetchBook() {
     }
 } // end fetchBooks
 
+function* getDetailView(action){
+    console.error('PLEASE',action.payload)
+    const id = action.payload;
+    try {
+        const response = yield axios.get(`/api/book/${id}`);
+        console.log('DETAIL VIEW DATA:', id);
+        yield put({type: 'SET_DETAIL_VIEW', payload: response.data})
+    } catch (error) {
+        console.error('ERROR IN getDetailView booklist.saga', error)
+    }
+
+}// end getDetailView
 
 
 // Insert delete from example item.saga.js in auth-shelf

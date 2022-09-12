@@ -17,16 +17,17 @@ import App from './components/App/App';
 // Create the rootSaga generator function
 function* rootSaga() {
   yield takeEvery('FETCH_BOOKS', fetchAllBooks);
-  yield takeEvery('GET_DETAIL_VIEW', getDetailView);
+  // yield takeEvery('GET_DETAIL_VIEW', getDetailView);
   // yield takeEvery('FETCH_GENRES', fetchAllGenres);
   // yield takeEvery('CURRENT_BOOK', fetchCurrentBook);
 }
 
 function* getDetailView(action) {
-console.log(action.payload);
+
+console.log('getDetailView saga in index.js',action.payload);
 try {
   const details = yield axios.get(`/api/book/${action.payload}`);
-  console.log(details.data);
+  console.log('details.data in index saga',details.data);
   yield put ({type: 'SET_DETAIL_VIEW', payload:details.data})
 } catch {
   console.error('ERROR IN GET DETAIL VIEW IN INDEX.JS');
@@ -45,23 +46,23 @@ function* fetchAllBooks() {
   }
 } // end fetchAllBooks 
 
-function* fetchAllGenres(action) {
-  try {
-    const genre = yield axios.get(`/api/genre/${action.payload}`);
-    yield put({type: 'SET_GENRE', payload: genre.data})
-  } catch {
-    console.error('Error in fetchAllGenres in index.js')
-  }
-} // end fetchAllGenres
+// function* fetchAllGenres(action) {
+//   try {
+//     const genre = yield axios.get(`/api/genre/${action.payload}`);
+//     yield put({type: 'SET_GENRE', payload: genre.data})
+//   } catch {
+//     console.error('Error in fetchAllGenres in index.js')
+//   }
+// } // end fetchAllGenres
 
-function* fetchCurrentBook(action) {
-  try {
-    const currentBook = yield axios.get(`/api/book/${action.payload}`);
-    yield put({type: 'SET_BOOK', payload: currentBook.data});
-  } catch {
-    console.error('Error in fetchCurrentBook in index.js');
-  }
-} // end fetchCurrentBook
+// function* fetchCurrentBook(action) {
+//   try {
+//     const currentBook = yield axios.get(`/api/book/${action.payload}`);
+//     yield put({type: 'SET_BOOK', payload: currentBook.data});
+//   } catch {
+//     console.error('Error in fetchCurrentBook in index.js');
+//   }
+// } // end fetchCurrentBook
 
 // function* fetchEditedDetails(action) {
 //   console.log('In fetchEditedDetails:', action.payload)
@@ -107,6 +108,7 @@ const genre = (state = [], action) => {
       return state;
   }
 } // end genres
+
 
 const editedDetails = (state = [], action) => {
   switch (action.type) {

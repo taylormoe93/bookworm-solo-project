@@ -3,7 +3,9 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 // import books from './booklist.reducer';
 import fetchBook from './fetchBook.reducer';
-import bookListReducer from './booklist.reducer'
+import bookListReducer from './booklist.reducer';
+// import detailsReducer from './details.reducer';
+import detailsReducer from './details.reducer'
 
 
 // rootReducer is the primary reducer for our entire project
@@ -17,7 +19,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   bookListReducer,
   fetchBook,
-
+  detailsReducer
 });
 
 export default rootReducer;

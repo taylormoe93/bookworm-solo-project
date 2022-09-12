@@ -28,10 +28,10 @@ After handleClick is triggered, history.push to the details view, using that boo
 const handleClick = () => {
     console.log('In BookItem.jsx handleClick. The clicked Book ID is:', book.id);
     history.push(`/details/${book.id}`)
-    // dispatch({
-    //     type: 'FETCH_BOOK',
-    //     payload: params.id
-    // });
+        dispatch({
+            type: 'GET_DETAIL_VIEW',
+            payload: book.id
+        });
 
     // history.push(`/details/${book.id}`);
 }

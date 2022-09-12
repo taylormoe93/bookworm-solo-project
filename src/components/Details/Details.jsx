@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import { useParams } from 'react-router-dom';
 
+
 // DETAILS
 function Details() {
     //Declare history, dispatch, params, useSelectors
@@ -12,20 +13,22 @@ function Details() {
     const params = useParams();
 
     const book = useSelector(store => store.fetchBook);
+    const details = useSelector(store => store.detailsReducer);
+    console.error('DETAILS REDUCER', details)
     // const genre = useSelector(store => store.genres);
     console.log('DETAILS SHOULD GIVE BOOK:', book);
     //GET DETAILS
     useEffect(() => {
-        getDetails(id);
     }, []);
     let {id} = useParams();
 
     const getDetails = (id) => {
-        console.log(id)
-        dispatch({
-            type: 'GET_DETAIL_VIEW',
-            payload: id
-        });
+        console.log('IN getDetails DETAILS.JSX. ID:', id)
+       
+        // dispatch({
+        //     type: 'GET_DETAIL_VIEW',
+        //     payload: id
+        // });
     };
 
     /*
@@ -45,12 +48,14 @@ Beneath that we have the genre.
 return(
     <>
         {/* TITLE, COVER, DESCRIPTION */}
-        {/* <div className="detailsInfo">
-            <h1>{book.title}</h1>
-             <p>{book.author}</p>
-            <img src={book.cover} /> */}
-           
-        {/* </div> */}
+        <div className="detailsInfo">
+        </div>
+            {details.map(detailedView => (
+          <div className='mappp' key={detailedView.id}>
+            <p>{detailedView.title} </p>
+
+          </div>
+        ))}
 
         {/* BACK BUTTON */}
         <button onClick={handleClick}>Back</button>
