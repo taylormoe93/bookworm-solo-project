@@ -11,18 +11,20 @@ function Details() {
     const dispatch = useDispatch();
     const params = useParams();
 
-    const book = useSelector(store => store.currentBook);
-    const genre = useSelector(store => store.genres);
-
+    const book = useSelector(store => store.fetchBook);
+    // const genre = useSelector(store => store.genres);
+    console.log('DETAILS SHOULD GIVE BOOK:', book);
     //GET DETAILS
     useEffect(() => {
-        getDetails();
+        getDetails(id);
     }, []);
+    let {id} = useParams();
 
-    const getDetails = () => {
+    const getDetails = (id) => {
+        console.log(id)
         dispatch({
-            type: 'FETCH_GENRES',
-            payload: params.id
+            type: 'GET_DETAIL_VIEW',
+            payload: id
         });
     };
 
@@ -31,7 +33,7 @@ function Details() {
     Sends User to the My Library Page.
     */
    const handleClick = () => {
-    history.push('/'); // does this need to be /user instead of /?
+    history.push('/user'); 
    }
 
 /*
@@ -43,21 +45,16 @@ Beneath that we have the genre.
 return(
     <>
         {/* TITLE, COVER, DESCRIPTION */}
-        <h1>{book.title}</h1>
-        <img src={book.cover} />
-        <p>{book.notes}</p>
+        {/* <div className="detailsInfo">
+            <h1>{book.title}</h1>
+             <p>{book.author}</p>
+            <img src={book.cover} /> */}
+           
+        {/* </div> */}
 
-        {/* GENRE */}
-        <div>
-            {genre.map(genre => {
-                return(
-                    <p key={genre.id}>{genre.name}</p>
-                )
-            })}
-        </div>
-        
         {/* BACK BUTTON */}
         <button onClick={handleClick}>Back</button>
+        {/* <button onClick={`/edit/${id}`}>Edit</button> */}
     </>
 )
 

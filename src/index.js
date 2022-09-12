@@ -17,10 +17,22 @@ import App from './components/App/App';
 // Create the rootSaga generator function
 function* rootSaga() {
   yield takeEvery('FETCH_BOOKS', fetchAllBooks);
-  yield takeEvery('FETCH_GENRES', fetchAllGenres);
-  yield takeEvery('CURRENT_BOOK', fetchCurrentBook);
-  // yield takeEvery ('GET_EDITED_DETAILS', fetchEditedDetails);
+  yield takeEvery('GET_DETAIL_VIEW', getDetailView);
+  // yield takeEvery('FETCH_GENRES', fetchAllGenres);
+  // yield takeEvery('CURRENT_BOOK', fetchCurrentBook);
 }
+
+function* getDetailView(action) {
+console.log(action.payload);
+try {
+  const details = yield axios.get(`/api/book/${action.payload}`);
+  console.log(details.data);
+  yield put ({type: 'SET_DETAIL_VIEW', payload:details.data})
+} catch {
+  console.error('ERROR IN GET DETAIL VIEW IN INDEX.JS');
+}
+
+}// end getDetailView
 
 function* fetchAllBooks() {
   //get all books from the Database

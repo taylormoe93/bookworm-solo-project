@@ -96,6 +96,12 @@ function App() {
           >
             <InfoPage />
           </ProtectedRoute>
+            
+          <ProtectedRoute
+          path="/details/:id">
+            <Details />
+          </ProtectedRoute>
+
 
           <Route
             exact

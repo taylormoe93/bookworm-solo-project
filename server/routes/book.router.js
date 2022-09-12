@@ -20,6 +20,22 @@ router.get('/', (req, res) => {
 }) // end GET
 
 /**
+ * GET route for DETAIL VIEW
+ */
+router.get('/:id', (req, res) => {
+    console.log(req.params.id);
+    const query = `SELECT * FROM book WHERE id = $1;`;
+    pool.query(query, [req.params.id])
+    .then(result => {
+        res.send(result.rows);
+    })
+    .catch(error => {
+        console.error('ERROR IN GET DETAIL in book.router.js', error);
+        res.sendStatus(500)
+    })
+})
+
+/**
  * POST route 
  */
 // Req.body vs req.user?

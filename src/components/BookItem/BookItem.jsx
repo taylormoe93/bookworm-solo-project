@@ -27,6 +27,7 @@ After handleClick is triggered, history.push to the details view, using that boo
 */
 const handleClick = () => {
     console.log('In BookItem.jsx handleClick. The clicked Book ID is:', book.id);
+    history.push(`/details/${book.id}`)
     // dispatch({
     //     type: 'FETCH_BOOK',
     //     payload: params.id
@@ -46,10 +47,10 @@ return(
     <>  
      {/* Click the div to trigger details handleClick */}
             <br></br>
-        <div className="bookDiv" key={book.id} onClick={handleClick}>
+        <div className="bookDiv">
             <h3>{book.title}</h3>
             <p>{book.author}</p>
-            <img className="bookcover" src={book.cover} />
+            <img className="bookcover" key={book.id} onClick={handleClick} src={book.cover} />
             <br></br>
             <button onClick={() => deleteBook(book.id)}>Delete</button>
             <button onClick={() => handleEdit(book.id)}>Edit</button>
