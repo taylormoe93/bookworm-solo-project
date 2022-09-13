@@ -52,6 +52,7 @@ return(
             <p>{book.author}</p>
             <img className="bookcover" key={book.id} onClick={handleClick} src={book.cover} />
             <br></br>
+            <br></br>
             {/* <button onClick={() => deleteBook(book.id)}>Delete</button>
             <button onClick={() => handleEdit(book.id)}>Edit</button> */}
         </div>
