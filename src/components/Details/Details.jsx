@@ -52,16 +52,17 @@ return(
         <div className="detailsInfo">
         </div>
             {details.map(detailedView => (
-          <div key={detailedView.id}>
+          <div className="detailPage" key={detailedView.id}>
             <h1>{detailedView.title} </h1>
             <h2>{detailedView.author}</h2>
             <img className="coverDiv" src={detailedView.cover} />
             <br></br>
+            {/* BACK BUTTON */}
+            <button className="backButton" onClick={handleClick}>Back</button>
           </div>
         ))}
 
-        {/* BACK BUTTON */}
-        <button onClick={handleClick}>Back</button>
+
         {/* <button onClick={`/edit/${id}`}>Edit</button> */}
     </>
 )
