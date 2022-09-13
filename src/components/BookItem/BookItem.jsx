@@ -13,14 +13,14 @@ function BookItem({book}) {
     //added for DELETE (1). And added delete button in return.:
     const user = useSelector(store => store.user)
     
-    const deleteBook = (id) => {
-        console.log('In deleteBook');
-        dispatch({
-            type: 'DELETE_BOOK',
-            payload: id
-        })
-    }
-    // end of delete stuff
+    // const deleteBook = (id) => {
+    //     console.log('In deleteBook');
+    //     dispatch({
+    //         type: 'DELETE_BOOK',
+    //         payload: id
+    //     })
+    // }
+    // // end of delete stuff
 
 /*
 After handleClick is triggered, history.push to the details view, using that book's specific ID.
@@ -36,10 +36,10 @@ const handleClick = () => {
     // history.push(`/details/${book.id}`);
 }
 
-const handleEdit = (id) => {
-    console.log('In handleEdit', id);
-    history.push(`/edit/${id}`);
-}
+// const handleEdit = (id) => {
+//     console.log('In handleEdit', id);
+//     history.push(`/edit/${id}`);
+// }
 
 // Click the book and trigger the history.push to the details view
 // does this need a conditional to make auth work?
@@ -52,8 +52,8 @@ return(
             <p>{book.author}</p>
             <img className="bookcover" key={book.id} onClick={handleClick} src={book.cover} />
             <br></br>
-            <button onClick={() => deleteBook(book.id)}>Delete</button>
-            <button onClick={() => handleEdit(book.id)}>Edit</button>
+            {/* <button onClick={() => deleteBook(book.id)}>Delete</button>
+            <button onClick={() => handleEdit(book.id)}>Edit</button> */}
         </div>
     </>
     // BASIC CODE THAT WORKS FOR DIV
