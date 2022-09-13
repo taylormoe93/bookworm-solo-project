@@ -93,7 +93,10 @@ return(
             {/* EDIT BUTTON */} 
             &nbsp;
             <Button variant="(default)" 
+            className="edit"
+            //  style={{color: "#87ceeb"}} 
             onClick={() => handleEdit(details.id)}>
+           
             Edit
             </Button>
 
