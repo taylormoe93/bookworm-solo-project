@@ -5,6 +5,21 @@ import {useDispatch} from 'react-redux';
 import { useParams } from 'react-router-dom';
 import './Details.css'
 
+// MUI
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+
+
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+/>
+
 
 // DETAILS
 function Details(book) {
@@ -69,13 +84,28 @@ return(
             <br></br>
             <br></br>
             {/* BACK BUTTON */}
-            <button className="backButton" onClick={handleClick}>Back</button>
-            {/* DELETE BUTTON */} 
-            &nbsp;
-            <button onClick={() => deleteBook(details.id)}>Delete</button>
+            <Button variant="(default)" 
+            className="backButton" 
+            onClick={handleClick}>
+            Home
+            </Button>
+
             {/* EDIT BUTTON */} 
             &nbsp;
-            <button onClick={() => handleEdit(details.id)}>Edit</button>
+            <Button variant="(default)" 
+            onClick={() => handleEdit(details.id)}>
+            Edit
+            </Button>
+
+             {/* DELETE BUTTON */} 
+            &nbsp;
+            <Button variant="(default)"
+            onClick={() => deleteBook(details.id)}
+            style={{color: "red"}} 
+            startIcon={<DeleteIcon />}>
+             Delete
+            </Button>
+
           </div>
         ))}
 

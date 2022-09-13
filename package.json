@@ -7,11 +7,18 @@
     "node": "16.x"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/icons-material": "^5.10.3",
+    "@mui/material": "^5.10.5",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "cookie-session": "^2.0.0",
     "dotenv": "^8.6.0",
     "express": "^4.17.1",
+    "install": "^0.13.0",
+    "npm": "^8.19.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg": "^8.5.1",
