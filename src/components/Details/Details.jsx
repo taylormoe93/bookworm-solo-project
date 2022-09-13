@@ -40,12 +40,13 @@ function Details(book) {
 }
 
   //DELETE BOOK
-  const deleteBook = (id) => {
+  const deleteBook = () => {
         console.log('In deleteBook');
         dispatch({
             type: 'DELETE_BOOK',
             payload: id
-        })
+        });
+        history.push('/user'); 
     }
     // end of delete stuff
 
