@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import { useParams } from 'react-router-dom';
+import './Details.css'
 
 
 // DETAILS
@@ -51,9 +52,11 @@ return(
         <div className="detailsInfo">
         </div>
             {details.map(detailedView => (
-          <div className='mappp' key={detailedView.id}>
-            <p>{detailedView.title} </p>
-
+          <div key={detailedView.id}>
+            <h1>{detailedView.title} </h1>
+            <h2>{detailedView.author}</h2>
+            <img className="coverDiv" src={detailedView.cover} />
+            <br></br>
           </div>
         ))}
 
