@@ -13,7 +13,20 @@ import '@fontsource/roboto/700.css';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 
+//MUI
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
 
+// MUI STYLING
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+})); // end MUI STYLING
 
 <link
   rel="stylesheet"
@@ -41,7 +54,7 @@ function Details(book) {
     let {id} = useParams();
 
     /*
-    HANDLECLICK for BACK button.
+    HANDLE CLICK for BACK button.
     Sends User to the My Library Page.
     */
    const handleClick = () => {
@@ -77,6 +90,10 @@ return(
         <div className="detailsInfo">
         </div>
             {details.map(detailedView => (
+            <Box sx={{ width: '100%' }}>
+              <Stack spacing={2}>
+              <Item>
+
           <div className="detailPage" key={detailedView.id}>
             <h1>{detailedView.title} </h1>
             <h2>{detailedView.author}</h2>
@@ -109,7 +126,11 @@ return(
              Delete
             </Button>
 
+
           </div>
+          </Item>
+          </Stack>
+          </Box>
         ))}
 
 

@@ -9,6 +9,11 @@ function BookItem({book}) {
     const dispatch = useDispatch();
     const params = useParams();
 
+    // todo comments
+    // !
+    // ?
+    // *
+    
     // Bring in user. Make a deleteBook dispatch. Payload is id.
     //added for DELETE (1). And added delete button in return.:
     const user = useSelector(store => store.user)
@@ -53,8 +58,7 @@ return(
             <img className="bookcover" key={book.id} onClick={handleClick} src={book.cover} />
             <br></br>
             <br></br>
-            {/* <button onClick={() => deleteBook(book.id)}>Delete</button>
-            <button onClick={() => handleEdit(book.id)}>Edit</button> */}
+         
         </div>
     </>
     // BASIC CODE THAT WORKS FOR DIV
