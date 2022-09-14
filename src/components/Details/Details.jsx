@@ -5,7 +5,7 @@ import {useDispatch} from 'react-redux';
 import { useParams } from 'react-router-dom';
 import './Details.css'
 
-// MUI
+// MUI BUTTONS
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -13,13 +13,13 @@ import '@fontsource/roboto/700.css';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-//MUI
+//MUI STACK LAYOUT
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 
-// MUI STYLING
+// MUI STACK LAYOUT STYLING
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
@@ -90,6 +90,7 @@ return(
         <div className="detailsInfo">
         </div>
             {details.map(detailedView => (
+            
             <Box sx={{ width: '100%' }}>
               <Stack spacing={2}>
               <Item>

@@ -1,6 +1,26 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import './EditBook.css'
+
+//MUI STACK LAYOUT
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
+
+//MUI INPUT AND BUTTON
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
+// MUI STACK LAYOUT STYLING
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+})); // end MUI STYLING
 
 function EditBook() {
     // Load the book details on page refresh
@@ -44,12 +64,17 @@ function EditBook() {
 
     return (
         <>
-            <div>
+        
+            <div className="editDiv">
+                <Box sx={{width: '100%' }}>
+                <Stack spacing={2}>
+                <Item>
                 <div>
-                   
-                </div>
-                <h3>Edit Book</h3>
-                <input 
+                
+                <h1>Edit Book</h1>
+
+                <TextField 
+                variant="outlined"
                 required
                 placeholder={'Title'} 
                 value={book.title} 
@@ -57,27 +82,59 @@ function EditBook() {
                 setBook({...book, title: event.target.value})} 
                 />
 
-                <input 
+                <br></br> 
+                <br></br>   
+
+                <TextField
+                variant="outlined" 
                 required
                 placeholder={'Author'} 
                 value={book.author} 
                 onChange={(event) => 
                 setBook({...book, author: event.target.value})} 
                 />
+            
+                <br></br>
+                <br></br>
+                   
 
-                <input 
+                <TextField
+                variant="outlined"
                 required
                 placeholder={'Cover'} 
                 value={book.cover} 
                 onChange={(event) => 
                 setBook({...book, cover: event.target.value})} 
                 />
+
+                
+                
             </div>
 
             <div>
-                <button onClick={() => history.push('/user')}>Cancel</button>
-                <button onClick={() => update()}>Save Changes</button>
+                <br></br>
+                
+                <Button variant="(default)" 
+                className="saveChanges"
+                onClick={() => update()}>
+                Save Changes
+                </Button>
+
+                
+                &nbsp; 
+
+                <Button variant="(default)"
+                className="cancel"
+                onClick={() => history.push('/user')}>
+                Cancel
+                </Button>
+
             </div>
+            
+        </Item>
+        </Stack>
+        </Box>
+        </div>
         </>
     )
 }
