@@ -16,8 +16,9 @@ function InfoPage() {
         <li>Redux Saga</li>
         <li>Node.js</li>
         <li>Express</li>
-        <li>Html/CSS</li>
-        <li>Javascript</li>
+        <li>HTML/CSS</li>
+        <li>JavaScript</li>
+        <li>SQL</li>
         <li>MUI</li>
         <li>Open Library API</li>
       </ul>
