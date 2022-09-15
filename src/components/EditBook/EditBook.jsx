@@ -57,7 +57,7 @@ function EditBook() {
     const dispatch = useDispatch()
     const history = useHistory();
 
-    const details = useSelector(store => store.details);
+    // const details = useSelector(store => store.details);
 
   
 

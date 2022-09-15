@@ -82,7 +82,7 @@ router.put('/:id', (req,res) => {
 })
 
 /*
-*Delete a book if it's someting the logged in user added
+*Delete a book if it's something the logged in user added
 */ 
 router.delete('/:id', (req, res) => {
     const queryText =  `DELETE FROM "book"
