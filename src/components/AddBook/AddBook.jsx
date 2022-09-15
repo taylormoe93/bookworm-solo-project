@@ -2,6 +2,25 @@ import {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 
+//MUI STACK LAYOUT
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
+
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
+// MUI STACK LAYOUT STYLING
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+})); // end MUI STYLING
+
+
 function AddBook() {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -46,33 +65,62 @@ function AddBook() {
 
 return(
     <>
+       <div className="editDiv">
+                <Box sx={{width: '100%' }}>
+                <Stack spacing={2}>
+                <Item>
+                
+
+                
         <h3>Add A Book</h3>
         {/* When we click submit */}
         <form onSubmit={handleSubmit}>
 
             {/* Run handleTitleChange */}
-            <input
+            <TextField
             required
             placeholder="Title"
             onChange={handleTitleChange}
-            ></input>
+            ></TextField>
+
+            <br></br>
+            <br></br>
 
             {/* Run handleAuthorChange */}
-            <input
+            <TextField
             required
             placeholder="Author"
             onChange={handleAuthorChange}
-            ></input>
+            ></TextField>
+
+            <br></br>
+            <br></br>
 
             {/* Run handleCoverChange */}
-            <input
+            <TextField
             required
             placeholder="Cover"
             onChange={handleCoverChange}
-            ></input>
+            ></TextField>
 
-            <button type="Submit">Submit</button>
+            <br></br>
+            <br></br>
+
+            <Button variant="(default)" type="Submit">Submit</Button>
+             
+            <Button variant="(default)"
+                className="cancel"
+                onClick={() => history.push('/user')}>
+                Cancel
+                </Button>
+
         </form>
+        
+        </Item>
+        </Stack>
+        </Box>
+        </div>
+        
     </>
 )
 } // end AddBookForm
