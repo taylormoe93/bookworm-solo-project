@@ -20,7 +20,7 @@ function AboutPage() {
 
         <p>This is where <b>Bookworm</b> comes in.</p>
 
-        <p><b>Bookworm</b> allows you to keep a to-be-read list with the name, author, genre, and even a picture of the cover to help you recall the book.</p> 
+        <p><b>Bookworm</b> allows you to keep a to-be-read list with the name, author, and a picture of the cover.</p> 
         
         <p>Have fun choosing a book from your to-be-read list, with <b>Bookworm!</b></p>
       </div>
