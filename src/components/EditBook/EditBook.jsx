@@ -13,14 +13,14 @@ import { styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-// MUI STACK LAYOUT STYLING
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-})); // end MUI STYLING
+    // MUI STACK LAYOUT STYLING
+    const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    })); // end MUI STYLING
 
 function EditBook() {
     // Load the book details on page refresh
@@ -32,8 +32,10 @@ function EditBook() {
     console.log('EDIT BOOK', id.id);
 
 
+
+    const currentBook = useSelector(store => store.detailsReducer[0])
       // user id?
-    const [book, setBook] = useState({id: id.id, title: '', author: '', cover: '', book_read:''})
+    const [book, setBook] = useState({id: id.id, title: currentBook.title, author: currentBook.author, cover: currentBook.cover, book_read:''})
     // const [genre_id, setGenre_id] = useState('')
 
     const reload = (id) => {
@@ -59,12 +61,10 @@ function EditBook() {
 
     // const details = useSelector(store => store.details);
 
-  
-
-
     return (
         <>
-        
+
+    {currentBook && 
             <div className="editDiv">
                 <Box sx={{width: '100%' }}>
                 <Stack spacing={2}>
@@ -76,8 +76,8 @@ function EditBook() {
                 <TextField 
                 variant="outlined"
                 required
-                placeholder={'Title'} 
-                value={book.title} 
+                placeholder={'Title'}
+                defaultValue={currentBook.title} 
                 onChange={(event) => 
                 setBook({...book, title: event.target.value})} 
                 />
@@ -89,7 +89,7 @@ function EditBook() {
                 variant="outlined" 
                 required
                 placeholder={'Author'} 
-                value={book.author} 
+                defaultValue={currentBook.author} 
                 onChange={(event) => 
                 setBook({...book, author: event.target.value})} 
                 />
@@ -102,7 +102,7 @@ function EditBook() {
                 variant="outlined"
                 required
                 placeholder={'Cover'} 
-                value={book.cover} 
+                defaultValue={currentBook.cover} 
                 onChange={(event) => 
                 setBook({...book, cover: event.target.value})} 
                 />
@@ -135,6 +135,7 @@ function EditBook() {
         </Stack>
         </Box>
         </div>
+}
         </>
     )
 }
