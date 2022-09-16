@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import BookItem from '../BookItem/BookItem';
+import './BookList.css'
 
 //MUI
 import Box from '@mui/material/Box';
@@ -31,8 +32,12 @@ function BookList() {
     }, []);
 
     return (
+        <>
+        <div>
+            <h1 className='heading'>My Library</h1>
+        </div>
+
         <main>
-            <h1>My Library</h1>
             <section className="book">
                 {bookListReducer.map(book => {
                     return (
@@ -54,6 +59,7 @@ function BookList() {
                 })}
             </section>
         </main>
+        </>
     )
 }
 
