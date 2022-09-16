@@ -25,6 +25,7 @@ import Details from '../Details/Details';
 import BookList from '../BookList/BookList';
 import AddBook from '../AddBook/AddBook';
 import EditBook from '../EditBook/EditBook';
+import Search from '../Search/Search';
 
 import './App.css';
 
@@ -77,11 +78,7 @@ function App() {
             {/* <UserPage /> */}
           </ProtectedRoute>
 
-            {/* ADD Detail view
-            <Route path="/animals/:id" exact>
-            <AnimalDetail />
-            </Route>
-            */}
+      
           <ProtectedRoute
           exact
           path="/add"
@@ -101,6 +98,12 @@ function App() {
           path="/details/:id">
             <Details />
           </ProtectedRoute>
+
+          <Route
+            path="/search"
+          >
+            <Search />
+          </Route>
 
 
           <Route
