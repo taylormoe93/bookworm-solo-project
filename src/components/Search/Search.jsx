@@ -1,18 +1,19 @@
 import React, {useState, useEffect} from 'react';
 
-function Search() {
+//MUI INPUT AND BUTTON
+import TextField from '@mui/material/TextField';
 
-      // Take two values and equal to useState hook
+function Search(){
+  // Take two values and equal to useState hook
   const [data, setData] = useState("");
   // Loading state - set by default to false
   const [loading, setLoading] = useState(false);
   // Error state
   const [error, setError] = useState("");
 
-
-  useEffect(() => {
+   useEffect(() => {
     setLoading(true); // if it's loading then set it to true
-    fetch("http://openlibrary.org/search.json?author=austen")
+    fetch("http://openlibrary.org/search.json?author=austen") // how to input the name of the author you want?
     .then((response) => response.json())
     .then((data) => setData(data))
     .then(() => setLoading())
@@ -35,8 +36,19 @@ function Search() {
     return <div className="app">{data.docs[0].title}</div>;
   }
 
-    return <h1>Welcome to the book searcher</h1>;
+    return (
+         <>
+            <TextField 
+                variant="outlined"
+                required
+                placeholder={'Search'}
+                />
+                        
+        </>
+
+           )
 }
+
 
 
 

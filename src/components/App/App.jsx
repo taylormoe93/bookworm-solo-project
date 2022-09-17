@@ -100,6 +100,7 @@ function App() {
           </ProtectedRoute>
 
           <Route
+            exact
             path="/search"
           >
             <Search />
