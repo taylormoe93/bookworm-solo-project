@@ -32,17 +32,28 @@ function Search(){
     return <pre>{JSON.stringify(error, null, 2)}</pre>;
   }
 
-  if (data) {
-    return <div className="app">{data.docs[0].title}</div>;
+  if(!data) {
+    return null;
   }
 
+  // if (data) {
+  //   return <div className="container">{data.docs[0].title}</div>;
+  // }
+
+  let array = data.docs;
     return (
          <>
-            <TextField 
-                variant="outlined"
-                required
-                placeholder={'Search'}
-                />
+         <div className="container">
+            <ul>
+              {array.map((item, i) => {
+                return <li key={i}>
+                  <i className="fa fa-book"></i>
+                  &nbsp;
+                  {item.title}
+                </li>;
+              })}
+            </ul>
+          </div>
                         
         </>
 
