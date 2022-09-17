@@ -11,4 +11,7 @@ ul.no-bullets {
   margin: 0; /* Remove margins */
 }
 
+.input {
+  position: center;
+}
 

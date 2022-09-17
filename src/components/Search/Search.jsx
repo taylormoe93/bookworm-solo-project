@@ -72,15 +72,16 @@ const searchHandler = (search) => {
 }
 
 
-
   let array = data.docs;
     return (
          <>
-          
+         
+  
+         <SearchInput className="input" term={search} searchKeyword={searchHandler}/>
          <Stack spacing={2}>
           <Item>
          <div className="container">
-            <SearchInput term={search} searchKeyword={searchHandler}/>
+            {/* <SearchInput term={search} searchKeyword={searchHandler}/> */}
             {/* If search results are less than one show this */}
             {search.length < 1 ? 
             <ul className="list">
