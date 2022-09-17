@@ -25,7 +25,7 @@ import Details from '../Details/Details';
 import BookList from '../BookList/BookList';
 import AddBook from '../AddBook/AddBook';
 import EditBook from '../EditBook/EditBook';
-import Search from '../Search/Search';
+
 
 import './App.css';
 
@@ -99,13 +99,7 @@ function App() {
             <Details />
           </ProtectedRoute>
 
-          <Route
-            exact
-            path="/search"
-          >
-            <Search />
-          </Route>
-
+     
 
           <Route
             exact

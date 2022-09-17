@@ -34,10 +34,6 @@ function Nav() {
               Add Book
             </Link>
 
-            <Link className="navLink" to="/search">
-              Search
-            </Link>
-
             <Link className="navLink" to="/info">
               Info Page
             </Link>
