@@ -20,14 +20,14 @@ function InfoPage() {
         <li>JavaScript</li>
         <li>SQL</li>
         <li>MUI</li>
-        <li>Open Library API</li>
+        
       </ul>
 
       <h2>Thanks To</h2>
       <ul>
         <li>Prime Digital Academy for the instruction</li>
-        <li>The Mitchison Cohort for the help and advice</li>
-        <li>My Family for the support and for instilling me with the love of books which inspired this project</li>
+        <li>The Mitchison cohort for the help and advice</li>
+        <li>My family for the support and for instilling me with the love of books which inspired this project</li>
       </ul>
     </div>
   );
