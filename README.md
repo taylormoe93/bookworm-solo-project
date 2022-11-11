@@ -10,6 +10,8 @@ Bookworm allows you to keep a book list with the name, author, genre, and a pict
 
 Have fun keeping a book list, with Bookworm!
 
+![Gif of Bookworm](https://thumbs.gfycat.com/NastyWavyDove-size_restricted.gif)
+
 ### Prerequisites
 
 [Node.js](https://nodejs.org/en/)
